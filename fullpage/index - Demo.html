@@ -17,9 +17,9 @@
 <!--[if gt IE 7]><!--> 
 <body> 
 <!--<![endif]-->
-<!--<![<div class="nav">
+<div class="nav">
 	<h1>
-		<a href="#">
+		<a href="https://github.com/powy1993/fullpage">
 			<img src="images/logo.jpg" class="logo" alt=""><p>fullPage - Github:https://github.com/powy1993</p>
 			<span>Fork me on Github!</span>
 		</a>
@@ -32,36 +32,79 @@
         <li><a href="#">HOME</a></li>
     </ul>
 </div>
--->
 	<div id="article">
 		
 		<div class="page section1 current">
 			<div class="contain">
 				<div id="pageContain">
+		
 				<div class="page page1 current">
 					<div class="contain">
-						<img src="images/act1.jpg" >
+						<h3 class="title">整屏切换组件</h3>
+						<h4 class="titleEng">fullPage</h4>
+						<img src="images/a2.png" alt="HTML,CSS" class="page1-box">
+						<p>使用CSS3动画以及降级处理，兼容到ie6。</p>
+					</div>
+				</div>
+
+				<div class="page page2">
+					<div class="contain">
+						<h3 class="title">这是轮播第二部分</h3>
+						<h4 class="titleEng">This is 1-2</h4>
+						<img src="images/a10.png" alt="可视化数据" class="page2-box">
+					</div>
+				</div>
+
+				<div class="page page3">
+					<div class="contain">
+						<h3 class="title">可以随意地添加动画</h3>
+						<h4 class="titleEng">could use animation(CSS3)</h4>
+						<img src="images/a13.png" alt="影视制作" class="page3-box">
+					</div>
+					<div class="scTop"></div>
+					<div class="scBottom"></div>
+				</div>
+
+				<div class="page page4">
+					<div class="contain">
+						<h3 class="title">支持手机端触摸</h3>
+						<h4 class="titleEng">Touch it!</h4>
+						<div class="page4-box">
+							<img src="images/a5.png" alt="微信">
+						</div>
 					</div>
 				</div>
 			</div>
+			<ul id="navBar">
+				<li></li>
+				<li></li>
+				<li></li>
+ 				<li></li>
+			</ul>
+
+    			<div id="prev">&lt;</div>
+    			<div id="next">&gt;</div>
 			</div>
 		</div>
 
 		<div class="page section2">
 			<div class="contain">
-				<img src="images/act2.jpg" >
+				<h3 class="title">这里是第二竖屏</h3>
+				<h4 class="titleEng">This is section2</h4>
 			</div>
 		</div>
 
 		<div class="page section3">
 			<div class="contain">
-				<img src="images/act3.jpg" >
+				<h3 class="title">这里是第三竖屏</h3>
+				<h4 class="titleEng">This is section3</h4>
 			</div>
 		</div>
 
 		<div class="page section4">
 			<div class="contain">
-				<img src="images/act4.jpg" >
+				<h3 class="title">这里是第四竖屏</h3>
+				<h4 class="titleEng">This is section4</h4>
 			</div>
 		</div>
 	</div>
@@ -133,6 +176,19 @@ interval = setTimeout(function() {
 
 </script>
 
+<script type="text/javascript">
+    
+    var prev = document.getElementById('prev'),
+        next = document.getElementById('next');
+    
+    prev.onclick = function() {
+        runPage.go(runPage.thisPage() - 1);
+    }
+    next.onclick = function() {
+        runPage.go(runPage.thisPage() + 1);
+    }
+
+</script>
 
 
 	<!--[if lte IE 6]>
