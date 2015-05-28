@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html><html><head>	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script>
+    <style type="text/css">
+    	.flip-container {
+			-webkit-perspective: 1000;
+			-moz-perspective: 1000;
+			-ms-perspective: 1000;
+			perspective: 1000;
+
+			-ms-transform: perspective(1000px);
+			-moz-transform: perspective(1000px);
+    		-moz-transform-style: preserve-3d; 
+    		-ms-transform-style: preserve-3d; 
+
+		/*	border: 1px solid #ccc;*/
+			
+		}
+		
+        /* START: Accommodating for IE */
+        /*.flip-container:hover .back,*/
+        
+         .flip-container.fliphover .back {
+            -webkit-transform: rotateY(0deg);
+            -moz-transform: rotateY(0deg);
+            -o-transform: rotateY(0deg);
+            -ms-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+        }
+
+        /*.flip-container:hover .front,*/
+         .flip-container.fliphover .front {
+            -webkit-transform: rotateY(-180deg);
+            -moz-transform: rotateY(-180deg);
+            -o-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
+        }
+		
+		/* END: Accommodating for IE */
+
+		.flip-container, .front, .back {
+			width:180px; height:220px;
+		}
+
+		.flipper {
+			-webkit-transition: 0.6s;
+			-webkit-transform-style: preserve-3d;
+			-ms-transition: 0.6s;
+
+			-moz-transition: 0.6s;
+			-moz-transform: perspective(1000px);
+			-moz-transform-style: preserve-3d;
+			-ms-transform-style: preserve-3d;
+
+			transition: 0.6s;
+			transform-style: preserve-3d;
+
+			position: relative;
+		}
+
+		.front, .back {
+			-webkit-backface-visibility: hidden;
+			-moz-backface-visibility: hidden;
+			-ms-backface-visibility: hidden;
+			backface-visibility: hidden;
+
+		    -webkit-transition: 0.6s;
+		    -webkit-transform-style: preserve-3d;
+
+		    -moz-transition: 0.6s;
+		    -moz-transform-style: preserve-3d;
+
+		    -o-transition: 0.6s;
+		    -o-transform-style: preserve-3d;
+
+		    -ms-transition: 0.6s;
+		    -ms-transform-style: preserve-3d;
+
+		    transition: 0.6s;
+		    transform-style: preserve-3d;
+
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		.front {
+			-webkit-transform: rotateY(0deg);
+			-ms-transform: rotateY(0deg);
+			background: lightgreen;
+			z-index: 2;
+		}
+
+		.back {
+			background: lightblue;
+			-webkit-transform: rotateY(-180deg);
+		    -moz-transform: rotateY(-180deg);
+		    -o-transform: rotateY(-180deg);
+		    -ms-transform: rotateY(-180deg);
+		    transform: rotateY(-180deg);
+		}
+
+
+        .flip-pic, .hover-pic{  border-radius:15px; }
+        .flip-container, .flip-pic img, .hover-pic img{  border-radius:15px;width:180px; height:220px;}
+        
+        
+        .draw{ width:650px; text-align:center; margin:0 auto;}
+        .draw ul li{ list-style:none; float:left; margin:10px;}
+        
+        .hide{ display:none;}
+        .show{ display:block;}
+        .hover-pic{  }
+       
+        .poker_dialog{}
+        
+        .current{ -webkit-animation: ksscale 0.8s linear; }
+        .drag_poker_dialog { width: 100%;height: 100%;background: rgba(0,0,0,.5);display: block;position: fixed;top: 0;left: 0;}
+        .drag_poker_prod{ position: absolute;left: 20%;top: 30%;}
+        .drag_poker_prod .close{ position: absolute;top: -12px;right: -12px;font-size: 20px;background: #ccc;border-radius: 20px;}
+        .drag_poker_prod .close a{ width: 30px;height: 30px;display: block;text-align: center;line-height: 30px;cursor: pointer;color: #fff;font-weight: bold;}
+        
+        @-webkit-keyframes ksscale
+        {
+          0% {  transform: scale(0) }
+          100% { transform: scale(1) }
+            
+        }
+        
+        
+    </style>
+</head>
+<body>
+<div class="draw">
+<ul>
+<li>
+<div class="flip-container">
+<div class="flipper" data-code="AA">
+<div class="front">
+<div class="flip-pic"><img src="poke1.jpg" /></div>
+</div>
+<div class="back">
+<div class="hover-pic">
+
+<img src="a.jpg"  data-big-img="http://image4.zoshow.com/upload/goods20140411/74147406/741474060001/g1_315_420.jpg" />
+
+
+</div>
+</div>
+</div>
+</div>
+</li>
+
+<li>
+<div class="flip-container">
+<div class="flipper" data-code="BB">
+<div class="front">
+<div class="flip-pic"><img src="poke1.jpg" /></div>
+</div>
+<div class="back">
+<div class="hover-pic"><img src="b.jpg" data-big-img="http://katespade.cn/sites/default/files/pictures/PXRU5430_1.jpg" /></div>
+</div>
+</div>
+</div>
+</li>
+
+
+<li>
+<div class="flip-container">
+<div class="flipper" data-code="AA">
+<div class="front">
+<div class="flip-pic"><img src="poke1.jpg" /></div>
+</div>
+<div class="back">
+<div class="hover-pic"><img src="a.jpg" /></div>
+</div>
+</div>
+</div>
+</li>
+
+
+<li>
+<div class="flip-container">
+<div class="flipper" data-code="SS">
+<div class="front">
+<div class="flip-pic"><img src="poke1.jpg" /></div>
+</div>
+<div class="back">
+<div class="hover-pic"><img src="s.jpg" /></div>
+</div>
+</div>
+</div>
+</li>
+
+
+<li>
+<div class="flip-container">
+<div class="flipper" data-code="BB">
+<div class="front">
+<div class="flip-pic"><img src="poke1.jpg" /></div>
+</div>
+<div class="back">
+<div class="hover-pic"><img src="b.jpg" /></div>
+</div>
+</div>
+</div>
+</li>
+
+<li>
+<div class="flip-container">
+<div class="flipper" data-code="SS">
+<div class="front">
+<div class="flip-pic"><img src="poke1.jpg" /></div>
+</div>
+<div class="back">
+<div class="hover-pic"><img src="s.jpg" /></div>
+</div>
+</div>
+</div>
+</li>
+
+
+</ul>
+</div>
+
+
+
+<script>
+    $(document).ready(function ($) {
+        window.localStorage.removeItem("poker1");
+        window.localStorage.removeItem("poker2");
+
+        $(".hover-pic").click(function () {
+
+            var dialog = $("<div class='poker_dialog' />");
+            dialog.append($("<div />").addClass("drag_poker_dialog"));
+            dialog.append($("<div />").addClass("drag_poker_prod current")
+            .append($("<img />").attr("src", $(this).find("img").attr("data-big-img")))
+            .append($("<div />").addClass("close").append($("<a />").text("×")))
+            );
+
+            $(".draw").append(dialog);
+
+        });
+
+        $(".draw").on("click", ".drag_poker_prod .close a", function () {
+            $(".poker_dialog").remove();
+        });
+
+
+        $(".flip-container .flipper .front").click(function () {
+
+            $(this).parents(".flip-container").addClass("fliphover");
+            var poker1 = localStorage["poker1"];
+            var poker2 = localStorage["poker2"];
+
+
+
+            if (window.localStorage) {
+                if (poker1 == undefined) {//第一次翻牌
+                    console.log(1);
+                    localStorage["poker1"] = poker1 = $(this).parents(".flipper").attr("data-code");
+                    $(this).parents(".flip-container").attr("data-over", "temp"); //翻牌标记
+                }
+                else if (poker1 != undefined && poker2 == undefined) {//第二次翻牌
+                    console.log(3);
+                    localStorage["poker2"] = poker2 = $(this).parents(".flipper").attr("data-code");
+                    $(this).parents(".flip-container").attr("data-over", "temp"); //翻牌标记
+                }
+
+                if (poker1 != undefined && poker2 != undefined) {
+                    setTimeout(function () {
+                        CheckFlip()
+                    }, 300);
+                }
+
+            } else {
+                alert('不支持存储.');
+            }
+        });
+
+        function CheckFlip() {
+            var poker1 = localStorage["poker1"];
+            var poker2 = localStorage["poker2"];
+
+            if (poker1 != undefined && poker2 != undefined) {
+                console.log(3);
+                console.log(poker1);
+                console.log(poker2);
+
+                if (poker1 != poker2) {
+                    $(".flip-container[data-over='temp']").removeClass("fliphover");
+                    window.localStorage.removeItem("poker1");
+                    window.localStorage.removeItem("poker2");
+
+                } else {
+                    $(".flip-container[data-over='temp']").attr("data-over", "success");
+                    window.localStorage.removeItem("poker1");
+                    window.localStorage.removeItem("poker2");
+                }
+            } else {
+                console.log(4);
+
+            }
+            if ($(".flip-container[data-over='success']").length == 6 && $(".flip-container .fliphover").length == 6) {
+                alert('通关...');
+                return;
+            }
+
+        }
+
+
+        //        $(".flipper .back").click(function () {
+        //            $(this).parents(".flip-container").removeClass("fliphover");
+        //        });
+
+    });
+</script>
+</body>
+</html>
